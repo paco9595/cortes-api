@@ -3,12 +3,11 @@ var express = require('express')
 var api = express.Router();
 
 
-var userController = require("../controllers/user")
-
+var proyectoController = require("../controllers/projecto")
 var mddlUser = require('../middleware/user').UserAuth;
 
-api.get('/login' ,userController.login)
-api.get('/creat', mddlUser ,userController.creat)
+api.get('/get' ,proyectoController.get)
+api.get('/creat',mddlUser,proyectoController.creat)
 
 //api.get('/login',userController.login)
 
