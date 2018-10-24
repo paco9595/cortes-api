@@ -1,6 +1,6 @@
 'use strict'
 
-const connection = require('../connection');
+const connection = require('../connection').connection;
 
 function get(req, res) {
     var id = req.query.id;
