@@ -4,7 +4,7 @@ const connection = require('../connection').connection;
 
 function get(req, res) {
     var id = req.query.id;
-    var sql = 'SELECT * FROM proyecto ' + id ? "where id_proyecto = " + connection.escape(parmas.usuario) : "";
+    var sql = 'SELECT * FROM vidrio';
     connection.query(sql, function (error, results) {
         if (error) return res.status(500).send({ error });
         return res.status(200).send({ results })
