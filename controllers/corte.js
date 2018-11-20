@@ -3,8 +3,8 @@
 const connection = require('../connection').connection;
 
 function get(req, res) {
-    var id = req.query.id;
-    var sql = 'SELECT * FROM corte ' + id ? "where id_corte = " + connection.escape(parmas.usuario) : "";
+    var { id } = req.query;
+    var sql = 'SELECT * FROM corte where id_proyecto = ' + id;
     connection.query(sql, function (error, results) {
         if (error) return res.status(500).send({ error });
         return res.status(200).send({ results })

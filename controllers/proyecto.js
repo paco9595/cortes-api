@@ -5,7 +5,6 @@ const connection = require('../connection').connection;
 function get(req, res) {
     var id = req.query.id;
     var id_proyecto = req.query.id_proyecto;
-    console.log(id)
     var sql = 'SELECT proyecto.id_usuario,id_proyecto,fecha_inicio,fecha_fin,nombre,cliente.nombreCliente FROM proyecto INNER JOIN cliente ON proyecto.id_cliente = cliente.id_cliente WHERE proyecto.id_usuario = ' + id 
     if ( id_proyecto){
         sql += ' and id_proyecto ='+ id_proyecto ;
@@ -30,11 +29,18 @@ function creat(req, res) {
         res.status(200).send({ results })
     });
 }
+function lamina(req,res){
+    var {name} = req.query;
+    console.log(name)
+    var imgname = `http://localhost:3977/img/proyecto${name}.jpeg`
+    res.status(200).send({img: imgname})
+}
 function setFormatDate(date){
     const splitDate  = date.split('/');
     const year = splitDate[0];
 }
 module.exports = {
     get,
-    creat
+    creat,
+    lamina
 };

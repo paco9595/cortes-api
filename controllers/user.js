@@ -16,7 +16,6 @@ function login(req, res) {
                 }else if (err) {
                     return res.status(500).send({ msg: "Error buscando usuario" })
                 }else {
-                    console.log(results[0])
                     return res.status(200).send({ user: results, token: jwt.creatToken(results[0]) })
                 }
             })    
@@ -40,7 +39,6 @@ function creat(req, res) {
         newUser.password = hash
         var query = connection.query('INSERT INTO usuario SET ?', newUser, function (error, results, fields) {
             if (error) throw error;
-            console.log(results)
             res.status(200).send({results})
         });
     })

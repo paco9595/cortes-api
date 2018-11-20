@@ -17,7 +17,6 @@ function UserAuth(req, res, next) {
             }
         })
     } catch (ex) {
-        console.log(ex.message)
         if (ex.message === "Token expired") {
             return res.status(401).send({ msg: "token expirado" })
         }

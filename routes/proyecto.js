@@ -8,6 +8,7 @@ var mddlUser = require('../middleware/user').UserAuth;
 
 api.get('/get', mddlUser, proyectoController.get)
 api.post('/creat', mddlUser, proyectoController.creat)
+api.get('/lamina', mddlUser, proyectoController.lamina)
 
 
 module.exports = api
